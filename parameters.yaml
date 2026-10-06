@@ -1,0 +1,76 @@
+flappybirdv0:
+
+  # Flappy Bird environment ka ID.
+  # Ye wahi environment hai jo gymnasium mein available hai.
+  env_id: FlappyBird-v0
+
+
+  # Starting epsilon value.
+  # Epsilon decide karta hai ki agent:
+  # exploration karega ya learned action use karega.
+  #
+  # 1 means starting mein agent maximum exploration karega.
+  epsilon_init: 1
+
+
+  # Minimum epsilon value.
+  # Epsilon decay hone ke baad bhi is value se neeche nahi jayega.
+  #
+  # 0.05 means kam se kam 5% exploration maintain rahega.
+  epsilon_min: 0.05
+
+
+  # Epsilon ko har step/episode ke baad decrease karne ka factor.
+  #
+  # 0.9995 ka matlab epsilon slowly decrease hoga.
+  #
+  # Example:
+  # 1.0 → 0.9995 → 0.9990 → ...
+  epsilon_decay: 0.9995
+
+
+  # Replay Memory ki maximum capacity.
+  #
+  # Agent maximum 100000 past experiences store karega.
+  #
+  # Experience:
+  # (state, action, reward, next_state, done)
+  replay_memory_size: 100000
+
+
+  # DQN training ke time ek baar mein kitni
+  # experiences neural network ko di jayengi.
+  #
+  # 32 experiences = one mini-batch.
+  mini_batch_size: 32
+
+
+  # Target Network ko kitne steps ke baad
+  # main/online network se synchronize karna hai.
+  #
+  # 10 means har 10 steps ke baad target network update hoga.
+  network_sync_rate: 10
+
+
+  # Learning rate.
+  #
+  # Ye decide karta hai ki neural network apne weights
+  # ko kitni speed se update karega.
+  #
+  # 0.001 = learning rate.
+  alpha: 0.001
+
+
+  # Discount factor (Gamma).
+  #
+  # Ye future rewards ki importance decide karta hai.
+  #
+  # 0.99 means future rewards ko high importance di ja rahi hai.
+  gamma: 0.99
+
+
+  # Training ko successful maanane ke liye reward threshold.
+  #
+  # Agar agent ka reward 1000 tak pahunchta hai,
+  # to training ko successful/complete maana ja sakta hai.
+  reward_threshold: 1000
